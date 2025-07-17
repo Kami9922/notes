@@ -1,0 +1,25 @@
+{
+	"name": "Notes",
+	"short_name": "Notes",
+	"start_url": "/",
+	"display": "standalone",
+	"description": "A description for your application",
+	"lang": "ru",
+	"dir": "auto",
+	"theme_color": "#242424",
+	"background_color": "#242424",
+	"orientation": "any",
+	"icons": [
+		{
+			"src": "/icons/favicon.ico",
+			"sizes": "48x48",
+			"type": "ico"
+		},
+		{
+			"src": "/icons/192x192.png",
+			"sizes": "192x192",
+			"type": "png",
+			"purpose": "any maskable"
+		}
+	]
+}

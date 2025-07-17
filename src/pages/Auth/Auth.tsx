@@ -32,6 +32,7 @@ export const Auth = () => {
 	type FormValues = {
 		login: string
 	}
+
 	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log('user', data.login)
 		if (typeof data.login === 'string') {
