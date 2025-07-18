@@ -10,7 +10,7 @@ export const App = () => {
 			<AuthProvider>
 				<Routes>
 					<Route
-						path='/notes'
+						path='/'
 						element={
 							<PrivateRoute>
 								<Notes />
@@ -18,7 +18,7 @@ export const App = () => {
 						}
 					/>
 					<Route
-						path='/'
+						path='/auth'
 						element={<Auth />}
 					/>
 					<Route

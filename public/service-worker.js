@@ -5,7 +5,7 @@ const ASSETS = [
 	'/manifest.json',
 	'/src/main.tsx',
 	'/icons/192x192.png',
-	'/icons/favion.ico',
+	'/icons/favicon.ico',
 ]
 
 self.addEventListener('install', (event) => {

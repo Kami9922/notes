@@ -8,7 +8,7 @@ export const PrivateRoute = ({ children }: React.PropsWithChildren) => {
 	if (auth.user === null) {
 		return (
 			<Navigate
-				to='/'
+				to='/auth'
 				state={{ from: location.pathname }}
 				replace
 			/>

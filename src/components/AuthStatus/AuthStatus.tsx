@@ -8,7 +8,7 @@ export const AuthStatus = () => {
 
 	const handleSignout = () => {
 		auth.signout(() => {
-			navigate('/')
+			navigate('/auth')
 		})
 	}
 
