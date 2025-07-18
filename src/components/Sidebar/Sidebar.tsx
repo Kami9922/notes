@@ -33,10 +33,6 @@ export const SideBar = ({
 		setNotes(loadedNotes)
 	}, [query, refreshTrigger])
 
-	useEffect(() => {
-		loadNotes()
-	}, [loadNotes])
-
 	const handleAddNote = async () => {
 		const newNote = {
 			title: '',
@@ -56,6 +52,10 @@ export const SideBar = ({
 		setActiveNoteId(note.id!)
 		setActiveNote(note)
 	}
+
+	useEffect(() => {
+		loadNotes()
+	}, [loadNotes])
 
 	return (
 		<Box
