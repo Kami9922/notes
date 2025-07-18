@@ -5,13 +5,13 @@ import { Box, Button, List, Typography } from '@mui/material'
 import type { Note } from '../../types/types'
 
 interface SideBarProps {
-	searchQuery: string
+	query: string
 	setActiveNote: (note: Note) => void
 	refreshTrigger: any
 }
 
 export const SideBar = ({
-	searchQuery,
+	query,
 	setActiveNote,
 	refreshTrigger,
 }: SideBarProps) => {
@@ -21,17 +21,17 @@ export const SideBar = ({
 	const loadNotes = useCallback(async () => {
 		let notesQuery = db.notes.orderBy('updatedAt').reverse()
 
-		if (searchQuery) {
+		if (query) {
 			notesQuery = notesQuery.filter(
 				(note) =>
-					note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					note.content.toLowerCase().includes(searchQuery.toLowerCase())
+					note.title.toLowerCase().includes(query.toLowerCase()) ||
+					note.content.toLowerCase().includes(query.toLowerCase())
 			)
 		}
 
 		const loadedNotes = await notesQuery.toArray()
 		setNotes(loadedNotes)
-	}, [searchQuery, refreshTrigger])
+	}, [query, refreshTrigger])
 
 	useEffect(() => {
 		loadNotes()

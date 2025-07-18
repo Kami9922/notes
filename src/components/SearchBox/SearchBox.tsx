@@ -1,35 +1,29 @@
 import { TextField, InputAdornment } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import { useState } from 'react'
 
 interface SearchBoxProps {
-	onSearch: (query: string) => void
+	query: string
+	handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const SearchBox = ({ onSearch }: SearchBoxProps) => {
-	const [query, setQuery] = useState('')
-
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const val = e.target.value
-		setQuery(val)
-		onSearch(val)
-	}
-
+export const SearchBox = ({ query, handleSearch }: SearchBoxProps) => {
 	return (
 		<TextField
 			size='small'
 			placeholder='Поиск заметок...'
 			value={query}
-			onChange={handleChange}
+			onChange={handleSearch}
 			sx={{ width: 250 }}
-			InputProps={{
-				startAdornment: (
-					<InputAdornment position='start'>
-						<SearchIcon color='action' />
-					</InputAdornment>
-				),
-			}}
 			variant='outlined'
+			slotProps={{
+				input: {
+					startAdornment: (
+						<InputAdornment position='start'>
+							<SearchIcon color='action' />
+						</InputAdornment>
+					),
+				},
+			}}
 		/>
 	)
 }

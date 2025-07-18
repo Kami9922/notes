@@ -2,9 +2,10 @@ import { useCallback, useState } from 'react'
 import { Box } from '@mui/material'
 import { SearchBox, SideBar, WorkSpace, AuthStatus } from '../../components'
 import type { Note } from '../../types/types'
+import { useSearch } from '../../hooks/useSearch'
 
 export const Notes = () => {
-	const [searchQuery, setSearchQuery] = useState('')
+	const { query, handleSearch } = useSearch()
 	const [activeNote, setActiveNote] = useState<Note | null>(null)
 	const [refreshTrigger, setRefreshTrigger] = useState({})
 
@@ -37,7 +38,10 @@ export const Notes = () => {
 					bgcolor: 'background.paper',
 				}}>
 				<AuthStatus />
-				<SearchBox onSearch={setSearchQuery} />
+				<SearchBox
+					query={query}
+					handleSearch={handleSearch}
+				/>
 			</Box>
 
 			<Box
@@ -49,7 +53,7 @@ export const Notes = () => {
 					overflow: 'hidden',
 				}}>
 				<SideBar
-					searchQuery={searchQuery}
+					query={query}
 					setActiveNote={setActiveNote}
 					refreshTrigger={refreshTrigger}
 				/>
